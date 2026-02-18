@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mahenly.co — Meta Ads Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1A73E8;
+    --blue-dark: #1557B0;
+    --blue-light: #E8F1FD;
+    --green: #34A853;
+    --green-light: #E6F4EA;
+    --dark: #1C1C1E;
+    --gray: #6B7280;
+    --gray-light: #F5F7FA;
+    --border: #E5E9F0;
+    --white: #FFFFFF;
+    --mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--dark);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--blue); }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none; color: var(--gray);
+    font-size: 0.9rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--dark); }
+
+  .nav-cta {
+    background: var(--blue); color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.875rem; font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 96px 5%; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* ─── HERO ─── */
+  #hero {
+    padding-top: 140px;
+    padding-bottom: 80px;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(26,115,232,0.07) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  #hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(52,168,83,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--blue-light);
+    color: var(--blue);
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.8rem; font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.01em;
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-headline {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--dark);
+    margin-bottom: 1.25rem;
+  }
+  .hero-headline .highlight {
+    color: var(--blue);
+    position: relative;
+    display: inline-block;
+  }
+  .hero-headline .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    border-radius: 2px;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem; color: var(--gray);
+    margin-bottom: 2rem; line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--blue); color: white;
+    padding: 0.875rem 1.75rem;
+    border-radius: 10px;
+    font-size: 1rem; font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    box-shadow: 0 4px 14px rgba(26,115,232,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26,115,232,0.4);
+  }
+
+  .btn-secondary {
+    color: var(--dark); font-size: 1rem; font-weight: 600;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--blue); color: var(--blue);
+    background: var(--blue-light);
+  }
+
+  /* Metrics Cards */
+  .metrics-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .metric-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .metric-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 3px;
+  }
+  .metric-card.blue::before { background: var(--blue); }
+  .metric-card.green::before { background: var(--green); }
+  .metric-card.orange::before { background: #F9AB00; }
+  .metric-card.purple::before { background: #7B61FF; }
+
+  .metric-label {
+    font-size: 0.75rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--gray); margin-bottom: 0.5rem;
+  }
+
+  .metric-value {
+    font-family: var(--mono);
+    font-size: 1.75rem; font-weight: 500;
+    color: var(--dark); line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+  .metric-value.blue { color: var(--blue); }
+  .metric-value.green { color: var(--green); }
+  .metric-value.orange { color: #F9AB00; }
+  .metric-value.purple { color: #7B61FF; }
+
+  .metric-change {
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--green);
+    display: flex; align-items: center; gap: 0.25rem;
+  }
+
+  /* ─── TRUSTED ─── */
+  .trusted-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--gray-light);
+    padding: 1.25rem 5%;
+    display: flex; align-items: center; justify-content: center;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .trusted-label {
+    font-size: 0.8rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--gray);
+  }
+  .trusted-items {
+    display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap;
+  }
+  .trusted-item {
+    font-size: 0.875rem; font-weight: 600; color: #9CA3AF;
+    letter-spacing: -0.01em;
+  }
+
+  /* ─── PROBLEM ─── */
+  #problem { background: var(--dark); color: white; }
+
+  .section-tag {
+    font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .section-tag::before {
+    content: '';
+    width: 24px; height: 2px;
+    background: var(--green);
+  }
+
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1.05rem; color: var(--gray);
+    max-width: 560px; line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+  #problem .section-sub { color: #9CA3AF; }
+
+  .pain-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .pain-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .pain-card:hover {
+    border-color: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .pain-icon {
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .pain-title {
+    font-size: 1rem; font-weight: 700;
+    color: white; margin-bottom: 0.5rem;
+  }
+
+  .pain-desc {
+    font-size: 0.875rem; color: #9CA3AF; line-height: 1.6;
+  }
+
+  /* ─── SOLUTION ─── */
+  #solution { background: var(--white); }
+
+  .pillars {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; margin-top: 3rem;
+  }
+
+  .pillar {
+    padding: 2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .pillar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  }
+
+  .pillar-number {
+    font-family: var(--mono);
+    font-size: 3rem; font-weight: 500;
+    color: var(--blue-light);
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.05em;
+  }
+
+  .pillar-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.15rem; font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar-desc {
+    font-size: 0.9rem; color: var(--gray); line-height: 1.7;
+  }
+
+  .pillar-accent {
+    position: absolute; bottom: 0; right: 0;
+    width: 80px; height: 80px;
+    border-radius: 50% 0 20px 0;
+    opacity: 0.08;
+  }
+  .pillar:nth-child(1) .pillar-accent { background: var(--blue); }
+  .pillar:nth-child(2) .pillar-accent { background: var(--green); }
+  .pillar:nth-child(3) .pillar-accent { background: #7B61FF; }
+
+  /* ─── HOW IT WORKS ─── */
+  #how { background: var(--gray-light); }
+
+  .steps {
+    display: flex; flex-direction: column; gap: 0;
+    margin-top: 3rem; position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    left: 27px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), var(--green));
+  }
+
+  .step {
+    display: flex; gap: 2rem;
+    align-items: flex-start;
+    padding: 1.75rem 0;
+    position: relative;
+  }
+
+  .step-number {
+    width: 56px; height: 56px;
+    background: white;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono);
+    font-size: 1rem; font-weight: 500;
+    color: var(--blue);
+    flex-shrink: 0;
+    position: relative; z-index: 1;
+    transition: background 0.2s, color 0.2s;
+  }
+  .step:hover .step-number {
+    background: var(--blue); color: white;
+  }
+
+  .step-content { flex: 1; padding-top: 0.65rem; }
+
+  .step-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .step-desc {
+    font-size: 0.9rem; color: var(--gray); line-height: 1.65;
+  }
+
+  /* ─── CASE STUDIES ─── */
+  #proof { background: white; }
+
+  .cases-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+
+  .case-card {
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .case-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  }
+
+  .case-header {
+    background: var(--dark); padding: 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .case-industry {
+    font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--green);
+  }
+
+  .case-budget {
+    font-family: var(--mono);
+    font-size: 0.8rem; color: #9CA3AF;
+  }
+
+  .case-body { padding: 1.5rem; }
+
+  .case-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.05rem; font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .case-metrics {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.75rem; margin-bottom: 1.25rem;
+  }
+
+  .case-metric {
+    background: var(--gray-light);
+    border-radius: 10px;
+    padding: 0.875rem;
+  }
+
+  .case-metric-label {
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--gray); margin-bottom: 0.3rem;
+  }
+
+  .case-metric-val {
+    font-family: var(--mono);
+    font-size: 1.15rem; font-weight: 500;
+    color: var(--dark);
+  }
+  .case-metric-val.up { color: var(--green); }
+
+  .case-desc {
+    font-size: 0.875rem; color: var(--gray); line-height: 1.6;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--gray-light); }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem; margin-top: 3rem;
+  }
+
+  .service-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .service-card:hover {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px var(--blue-light);
+    transform: translateY(-2px);
+  }
+
+  .service-icon {
+    font-size: 1.5rem; margin-bottom: 1rem;
+  }
+
+  .service-name {
+    font-weight: 700; font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .service-desc {
+    font-size: 0.8rem; color: var(--gray); line-height: 1.5;
+  }
+
+  /* ─── DIFFERENTIATOR ─── */
+  #diff { background: white; }
+
+  .diff-table {
+    margin-top: 3rem;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .diff-head {
+    display: grid; grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
+    background: var(--dark); padding: 1.25rem 1.75rem;
+    gap: 1rem;
+  }
+  .diff-head-item {
+    font-size: 0.85rem; font-weight: 700;
+    color: white;
+    text-align: center;
+  }
+  .diff-head-item:first-child { text-align: left; color: #9CA3AF; }
+  .diff-head-item.highlight { color: var(--blue); }
+
+  .diff-row {
+    display: grid; grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
+    padding: 1.1rem 1.75rem;
+    gap: 1rem;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .diff-row:hover { background: var(--gray-light); }
+
+  .diff-feature {
+    font-size: 0.9rem; font-weight: 600; color: var(--dark);
+  }
+
+  .diff-val {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--gray);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .diff-val.yes { color: var(--green); font-weight: 700; }
+  .diff-val.no { color: #EF4444; }
+  .diff-val.maybe { color: #F9AB00; }
+  .diff-val.mahenly { color: var(--blue); font-weight: 700; }
+
+  /* ─── ABOUT ─── */
+  #about {
+    background: var(--blue);
+    color: white;
+  }
+
+  .about-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+
+  .about-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-text {
+    font-size: 1rem; line-height: 1.8;
+    opacity: 0.9; margin-bottom: 1.25rem;
+  }
+
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem; margin-top: 2rem;
+  }
+
+  .about-stat { text-align: center; }
+
+  .about-stat-val {
+    font-family: var(--mono);
+    font-size: 2rem; font-weight: 500;
+    color: white; display: block; line-height: 1;
+  }
+
+  .about-stat-label {
+    font-size: 0.8rem; opacity: 0.7; margin-top: 0.35rem;
+  }
+
+  .about-card {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 2rem;
+  }
+
+  .about-card-quote {
+    font-size: 1.1rem; line-height: 1.75;
+    font-style: italic; opacity: 0.95;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-card-name {
+    font-weight: 700; font-size: 0.9rem;
+  }
+  .about-card-role { opacity: 0.7; font-size: 0.85rem; }
+
+  /* ─── CTA ─── */
+  #cta {
+    background: linear-gradient(135deg, var(--dark) 0%, #2D3748 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-inner { max-width: 600px; margin: 0 auto; }
+
+  .cta-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+  }
+
+  .cta-sub {
+    font-size: 1.05rem; opacity: 0.75;
+    margin-bottom: 2rem; line-height: 1.7;
+  }
+
+  .cta-buttons {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  }
+
+  .btn-white {
+    background: white; color: var(--dark);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1rem; font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  }
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+
+  .btn-ghost {
+    background: transparent; color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1rem; font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover {
+    border-color: white;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ─── FAQ ─── */
+  #faq { background: var(--gray-light); }
+
+  .faq-list {
+    max-width: 700px; margin: 3rem auto 0;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .faq-item {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .faq-q {
+    width: 100%; background: none; border: none;
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.95rem; font-weight: 700;
+    color: var(--dark); cursor: pointer;
+    text-align: left;
+    gap: 1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .faq-q:hover { background: var(--gray-light); }
+
+  .faq-icon {
+    width: 24px; height: 24px;
+    background: var(--blue-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: var(--blue); font-size: 0.75rem;
+    transition: transform 0.25s;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .faq-item.open .faq-a { max-height: 300px; }
+
+  .faq-a-inner {
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.9rem; color: var(--gray); line-height: 1.7;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark); color: white;
+    padding: 3rem 5% 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-brand-name {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800; font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+  .footer-brand-name span { color: var(--blue); }
+
+  .footer-tagline {
+    font-size: 0.875rem; color: #9CA3AF;
+    line-height: 1.6; margin-bottom: 1.5rem;
+  }
+
+  .footer-contacts {
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .footer-contact {
+    font-size: 0.875rem; color: #9CA3AF;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: color 0.15s;
+  }
+  .footer-contact:hover { color: white; }
+
+  .footer-col-title {
+    font-size: 0.8rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: #9CA3AF; margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    display: flex; flex-direction: column; gap: 0.6rem; list-style: none;
+  }
+  .footer-links a {
+    font-size: 0.875rem; color: #9CA3AF;
+    text-decoration: none; transition: color 0.15s;
+  }
+  .footer-links a:hover { color: white; }
+
+  .footer-bottom {
+    max-width: 1100px; margin: 2rem auto 0;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.8rem; color: #6B7280;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 0 4%; }
+    .nav-links { display: none; }
+    section { padding: 72px 5%; }
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .pillars { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .diff-head { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+    .diff-row { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+    .diff-feature { font-size: 0.8rem; }
+  }
+
+  /* WhatsApp floating button */
+  .wa-float {
+    position: fixed; bottom: 24px; right: 24px; z-index: 99;
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  .wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37,211,102,0.6);
+  }
+</style>
+</head>
+<body>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/6281234567890" class="wa-float" target="_blank" title="Chat via WhatsApp">💬</a>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">mahenly<span>.co</span></a>
+  <ul class="nav-links">
+    <li><a href="#solution">Layanan</a></li>
+    <li><a href="#proof">Studi Kasus</a></li>
+    <li><a href="#how">Proses</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Free Audit →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner container">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Meta Ads Specialist · Data-Driven
+      </div>
+      <h1 class="hero-headline">
+        Meta Ads yang <span class="highlight">presisi</span>, berbasis data, dan menghasilkan
+      </h1>
+      <p class="hero-sub">
+        Stop bakar budget. Mulai iklan yang bisa diukur dan dioptimasi — setiap rupiah punya tujuan yang jelas.
+      </p>
+      <div class="hero-ctas">
+        <a href="#cta" class="btn-primary">🎯 Free Ads Audit</a>
+        <a href="#proof" class="btn-secondary">Lihat Studi Kasus →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="metrics-grid">
+        <div class="metric-card blue">
+          <div class="metric-label">Average ROAS</div>
+          <div class="metric-value blue">4.8×</div>
+          <div class="metric-change">↑ dari 1.2× sebelumnya</div>
+        </div>
+        <div class="metric-card green">
+          <div class="metric-label">CPA Turun</div>
+          <div class="metric-value green">-62%</div>
+          <div class="metric-change">↓ biaya per konversi</div>
+        </div>
+        <div class="metric-card orange">
+          <div class="metric-label">Conv. Rate</div>
+          <div class="metric-value orange">3.4%</div>
+          <div class="metric-change">↑ 2× rata-rata industri</div>
+        </div>
+        <div class="metric-card purple">
+          <div class="metric-label">Revenue Naik</div>
+          <div class="metric-value purple">+147%</div>
+          <div class="metric-change">↑ dalam 90 hari</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BAR -->
+<div class="trusted-bar">
+  <span class="trusted-label">Dipercaya oleh</span>
+  <div class="trusted-items">
+    <span class="trusted-item">UMKM Fashion</span>
+    <span class="trusted-item">F&B Brand</span>
+    <span class="trusted-item">Beauty Lokal</span>
+    <span class="trusted-item">Ecommerce</span>
+    <span class="trusted-item">Lifestyle Brand</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <div class="section-tag">The Problem</div>
+    <h2 class="section-title" style="color:white;">Udah keluar banyak, tapi penjualan<br>nggak gerak?</h2>
+    <p class="section-sub">
+      Kamu nggak sendirian. Ini yang hampir semua pemilik bisnis rasain waktu pertama kali ngiklan.
+    </p>
+    <div class="pain-grid">
+      <div class="pain-card fade-up">
+        <div class="pain-icon">💸</div>
+        <div class="pain-title">Budget habis, penjualan nol</div>
+        <div class="pain-desc">Iklan jalan terus, notifikasi pesanan nggak dateng-dateng. Rasa-rasanya buang uang ke angin.</div>
+      </div>
+      <div class="pain-card fade-up">
+        <div class="pain-icon">📊</div>
+        <div class="pain-title">Metrik bikin pusing</div>
+        <div class="pain-desc">Reach tinggi, CTR oke — tapi kenapa omzet nggak naik? Data ada tapi nggak tahu harus baca dari mana.</div>
+      </div>
+      <div class="pain-card fade-up">
+        <div class="pain-icon">🤷</div>
+        <div class="pain-title">Agency yang nggak transparan</div>
+        <div class="pain-desc">Laporan cantik tapi nggak ada konteks. Uang udah keluar, nggak tahu hasilnya buat apa.</div>
+      </div>
+      <div class="pain-card fade-up">
+        <div class="pain-icon">📈</div>
+        <div class="pain-title">Scaling terasa mustahil</div>
+        <div class="pain-desc">Waktu budget naik, ROAS malah turun. Nggak tahu cara scale yang bener tanpa bakar duit lebih banyak.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <div class="container">
+    <div class="section-tag">Solusi</div>
+    <h2 class="section-title">Yang kita optimasi bukan klik.<br>Tapi profit.</h2>
+    <p class="section-sub">
+      mahenly.co hadir bukan sebagai vendor yang cuma njalanin iklan. Tapi partner yang tahu bisnis kamu sama dalamnya kayak kamu sendiri.
+    </p>
+    <div class="pillars">
+      <div class="pillar fade-up">
+        <div class="pillar-number">01</div>
+        <h3 class="pillar-title">Precision Targeting</h3>
+        <p class="pillar-desc">Nggak ada budget yang mubazir. Kita definisikan audiens yang paling potensial beli — bukan yang paling gampang dijangkau. Data behavior, interest, dan lookalike kita analisis sebelum satu rupiah keluar.</p>
+        <div class="pillar-accent"></div>
+      </div>
+      <div class="pillar fade-up">
+        <div class="pillar-number">02</div>
+        <h3 class="pillar-title">Performance Optimization</h3>
+        <p class="pillar-desc">Setiap campaign punya siklus hidup. Kita monitor harian, optimasi mingguan, dan scaling saat momentumnya tepat. Bukan nunggu akhir bulan baru cek hasilnya.</p>
+        <div class="pillar-accent"></div>
+      </div>
+      <div class="pillar fade-up">
+        <div class="pillar-number">03</div>
+        <h3 class="pillar-title">Transparent Partnership</h3>
+        <p class="pillar-desc">Kamu bisa tanya kapan aja. Laporan real-time, meeting rutin, dan penjelasan pakai bahasa manusia — bukan bahasa agensi. Kita partner, bukan vendor.</p>
+        <div class="pillar-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container" style="max-width:800px;">
+    <div class="section-tag">Proses</div>
+    <h2 class="section-title">Dari audit sampai scaling —<br>ini cara kerjanya</h2>
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <div class="step-title">Audit & Diagnosis</div>
+          <div class="step-desc">Kita bedah akun Meta kamu dari awal. Lihat apa yang sudah jalan, apa yang bocor, dan di mana opportunity terbesarnya. Gratis, tanpa komitmen.</div>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <div class="step-title">Strategy & Setup</div>
+          <div class="step-desc">Bangun blueprint campaign yang sesuai target bisnis kamu — bukan template. Tracking pixel, event setup, dan struktur campaign yang clean dari awal.</div>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <div class="step-title">Launch & Testing</div>
+          <div class="step-desc">Kita jalankan, monitor, dan test berbagai creative + audience. Data yang ngomong — bukan asumsi.</div>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <div class="step-title">Optimization Cycles</div>
+          <div class="step-desc">Setiap minggu ada cycle optimasi. Kill yang underperform, scale yang perform. Ini yang bikin ROAS terus naik dari waktu ke waktu.</div>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-number">05</div>
+        <div class="step-content">
+          <div class="step-title">Scaling & Growth</div>
+          <div class="step-desc">Saat fondasinya kuat, kita scale dengan percaya diri. Budget lebih besar, ROAS tetap terjaga — bahkan makin baik.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="proof">
+  <div class="container">
+    <div class="section-tag">Studi Kasus</div>
+    <h2 class="section-title">Hasil nyata dari bisnis nyata</h2>
+    <p class="section-sub">Bukan klaim kosong. Ini angka dari klien yang pernah frustrated kayak kamu.</p>
+    <div class="cases-grid">
+      <div class="case-card fade-up">
+        <div class="case-header">
+          <div>
+            <div class="case-industry">Fashion Lokal</div>
+            <div style="color:white;font-weight:700;margin-top:0.25rem;">Brand Pakaian Wanita</div>
+          </div>
+          <div class="case-budget">Budget: Rp 5jt/bln</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-label">ROAS Sebelum</div>
+              <div class="case-metric-val">1.4×</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-label">ROAS Sesudah</div>
+              <div class="case-metric-val up">5.2×</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-label">CPA Turun</div>
+              <div class="case-metric-val up">-58%</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-label">Revenue</div>
+              <div class="case-metric-val up">+210%</div>
+            </div>
+          </div>
+          <div class="case-desc">"Sebelumnya budget keluar tiap bulan tapi nggak tahu iklan ngomong ke siapa. Sekarang tiap Rp 1 yang keluar, balik Rp 5 lebih."</div>
+        </div>
+      </div>
+      <div class="case-card fade-up">
+        <div class="case-header">
+          <div>
+            <div class="case-industry">F&B</div>
+            <div style="color:white;font-weight:700;margin-top:0.25rem;">Cloud Kitchen Surabaya</div>
+          </div>
+          <div class="case-budget">Budget: Rp 3jt/bln</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-label">ROAS Sebelum</div>
+              <div class="case-metric-val">1.1×</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-label">ROAS Sesudah</div>
+              <div class="case-metric-val up">4.6×</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-label">Order Naik</div>
+              <div class="case-metric-val up">+180%</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-label">CPO Turun</div>
+              <div class="case-metric-val up">-47%</div>
+            </div>
+          </div>
+          <div class="case-desc">"Dalam 60 hari, order dari iklan naik 3×. Yang bikin kaget, biaya per ordernya malah turun."</div>
+        </div>
+      </div>
+      <div class="case-card fade-up">
+        <div class="case-header">
+          <div>
+            <div class="case-industry">Beauty & Skincare</div>
+            <div style="color:white;font-weight:700;margin-top:0.25rem;">Brand Skincare Lokal</div>
+          </div>
+          <div class="case-budget">Budget: Rp 8jt/bln</div>
+        </div>
+        <div class="case-body">
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-label">ROAS Sebelum</div>
+              <div class="case-metric-val">2.1×</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-label">ROAS Sesudah</div>
+              <div class="case-metric-val up">6.8×</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-label">Conv. Rate</div>
+              <div class="case-metric-val up">+340%</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-label">Revenue</div>
+              <div class="case-metric-val up">+290%</div>
+            </div>
+          </div>
+          <div class="case-desc">"Akhirnya nemu cara iklan yang scalable. Pas budget naik, hasilnya ikut naik — bukan malah rugi."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-tag">Layanan</div>
+    <h2 class="section-title">Apa yang kita kerjain bareng</h2>
+    <p class="section-sub">Fokus di Meta Ads — karena spesialis lebih baik dari generalis.</p>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">📡</div>
+        <div class="service-name">Meta Ads Management</div>
+        <div class="service-desc">Full management Facebook & Instagram Ads — dari setup, optimasi, sampai scaling harian.</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🔍</div>
+        <div class="service-name">Campaign Audit</div>
+        <div class="service-desc">Bedah akun iklan kamu. Temukan kebocoran dan opportunity yang selama ini kelewat.</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🎨</div>
+        <div class="service-name">Creative Testing</div>
+        <div class="service-desc">Uji creative secara sistematis — copy, visual, CTA — biar tahu mana yang paling convert.</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🚀</div>
+        <div class="service-name">Scaling Strategy</div>
+        <div class="service-desc">Framework scaling yang aman — budget naik, ROAS tetap terjaga.</div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">📈</div>
+        <div class="service-name">Tracking & Analytics</div>
+        <div class="service-desc">Setup pixel, conversion event, dan dashboard reporting yang bisa kamu baca sendiri.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATOR -->
+<section id="diff">
+  <div class="container">
+    <div class="section-tag">Kenapa mahenly?</div>
+    <h2 class="section-title">Bukan agency biasa,<br>bukan juga freelancer biasa</h2>
+    <p class="section-sub">Kita cek bareng — apa bedanya kerja sama kita vs yang lain.</p>
+    <div class="diff-table fade-up">
+      <div class="diff-head">
+        <div class="diff-head-item">Yang dibandingkan</div>
+        <div class="diff-head-item highlight">mahenly.co</div>
+        <div class="diff-head-item">Agency Besar</div>
+        <div class="diff-head-item">Freelancer</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-feature">Spesialis Meta Ads</div>
+        <div class="diff-val mahenly">✅ 100%</div>
+        <div class="diff-val maybe">⚡ Dibagi-bagi</div>
+        <div class="diff-val maybe">🤷 Tergantung</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-feature">Transparansi laporan</div>
+        <div class="diff-val mahenly">✅ Real-time</div>
+        <div class="diff-val no">❌ Bulanan saja</div>
+        <div class="diff-val maybe">⚡ Variatif</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-feature">Response time</div>
+        <div class="diff-val mahenly">✅ < 1 jam</div>
+        <div class="diff-val no">❌ 1–3 hari</div>
+        <div class="diff-val maybe">⚡ Tergantung</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-feature">Fokus pada profit & ROAS</div>
+        <div class="diff-val mahenly">✅ Selalu</div>
+        <div class="diff-val no">❌ Fokus reach</div>
+        <div class="diff-val maybe">⚡ Kadang</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-feature">Cocok untuk UMKM</div>
+        <div class="diff-val mahenly">✅ Dirancang untuk ini</div>
+        <div class="diff-val no">❌ Minimum budget besar</div>
+        <div class="diff-val maybe">⚡ Kadang</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-feature">Pendekatan partnership</div>
+        <div class="diff-val mahenly">✅ Partner, bukan vendor</div>
+        <div class="diff-val no">❌ Hierarki agency</div>
+        <div class="diff-val maybe">⚡ Personal tapi terbatas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div>
+        <div class="section-tag" style="color: #81C995;">Tentang mahenly.co</div>
+        <h2 class="about-title">Kita ngerti pressure-nya<br>bisnis kecil.</h2>
+        <p class="about-text">
+          mahenly.co lahir dari frustasi yang sama: ngeluarin budget iklan, tapi nggak tahu hasilnya ke mana. Kita bukan konglomerat agensi — kita tim yang obsessed sama data dan hasil.
+        </p>
+        <p class="about-text">
+          Kita spesialis. Bukan generalis yang ngaku bisa segalanya. Meta Ads adalah satu hal yang kita kuasai dalam-dalam — dan itu yang kita dedikasikan buat bisnis kamu.
+        </p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="about-stat-val">50+</span>
+            <div class="about-stat-label">UMKM dibantu</div>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-val">4.8×</span>
+            <div class="about-stat-label">Rata-rata ROAS</div>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-val">3thn</span>
+            <div class="about-stat-label">Fokus Meta Ads</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-card">
+        <p class="about-card-quote">
+          "Anggaran iklan habis tapi penjualan nggak naik? Kita bedah datanya. Bukan nambah budget — tapi pastikan yang ada kerja optimal dulu."
+        </p>
+        <div class="about-card-name">Tim mahenly.co</div>
+        <div class="about-card-role">Meta Ads Specialist</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container cta-inner">
+    <h2 class="cta-title">Siap berhenti tebak-tebakan<br>dengan iklan?</h2>
+    <p class="cta-sub">
+      Mulai dengan audit gratis. Kita lihat kondisi akun kamu sekarang, dan kasih rekomendasi konkret — tanpa basa-basi, tanpa komitmen.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/6281234567890" class="btn-white" target="_blank">📅 Book Strategy Call</a>
+      <a href="mailto:hello@mahenly.co" class="btn-ghost">✉️ Email Kita</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 0;">
+      <div class="section-tag" style="justify-content:center;">FAQ</div>
+      <h2 class="section-title">Pertanyaan yang sering muncul</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          Minimum budget iklan berapa?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Kita rekomendasikan minimum Rp 3 juta/bulan untuk budget iklan (di luar fee management). Tapi kita bisa diskusi dulu kondisi bisnis kamu — karena beda industri, beda kebutuhannya.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Kapan mulai kelihatan hasilnya?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Tergantung kondisi awal. Untuk akun yang fresh, biasanya kita butuh 2–4 minggu pertama untuk learning phase dan optimization. Hasil yang stabil dan scalable biasanya terlihat di bulan ke-2 dan ke-3.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Apakah ada garansi hasil?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Nggak ada yang bisa garansi angka spesifik di dunia iklan — dan kalau ada yang berani garansi, itu red flag. Yang kita garansi: proses yang transparan, optimasi konsisten, dan komunikasi yang jujur. Kalau ada yang nggak perform, kita yang pertama bilang dan kasih solusinya.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Gimana sistem reportingnya?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Kamu dapat akses dashboard real-time yang bisa dipantau kapan aja. Selain itu ada laporan mingguan yang kita breakdown dengan bahasa yang mudah dimengerti — bukan cuma screenshot angka. Plus meeting bulanan untuk review strategi.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Apakah kita tetap pegang akses akun iklan?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Tentu. Akun iklan kamu tetap milik kamu 100%. Kita hanya minta akses sebagai partner — bukan mengambil alih. Transparansi adalah dasar kerja sama kita.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">mahenly<span>.co</span></div>
+      <p class="footer-tagline">Meta Ads Specialist & Data-Driven Digital Marketing Partner untuk UMKM Indonesia yang mau tumbuh dengan cara yang terukur.</p>
+      <div class="footer-contacts">
+        <a href="https://wa.me/6281234567890" class="footer-contact" target="_blank">💬 WhatsApp: +62 812-3456-7890</a>
+        <a href="mailto:hello@mahenly.co" class="footer-contact">✉️ hello@mahenly.co</a>
+        <a href="https://instagram.com/mahenly.co" class="footer-contact" target="_blank">📸 @mahenly.co</a>
+        <a href="https://calendly.com/mahenly" class="footer-contact" target="_blank">📅 Jadwalkan Call</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Layanan</div>
+      <ul class="footer-links">
+        <li><a href="#services">Meta Ads Management</a></li>
+        <li><a href="#services">Campaign Audit</a></li>
+        <li><a href="#services">Creative Testing</a></li>
+        <li><a href="#services">Scaling Strategy</a></li>
+        <li><a href="#services">Tracking & Analytics</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Perusahaan</div>
+      <ul class="footer-links">
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#proof">Studi Kasus</a></li>
+        <li><a href="#how">Cara Kerja</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Mulai Sekarang</div>
+      <ul class="footer-links">
+        <li><a href="#cta">Free Ads Audit</a></li>
+        <li><a href="https://calendly.com/mahenly">Book Strategy Call</a></li>
+        <li><a href="https://wa.me/6281234567890">Chat via WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 mahenly.co — All rights reserved.</div>
+    <div class="footer-copy">Made with precision & purpose 🎯</div>
+  </div>
+</footer>
+
+<script>
+  // FAQ Toggle
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 0.1}s`;
+    observer.observe(el);
+  });
+
+  // Counter animation for metrics
+  function animateCounter(el, target, suffix = '') {
+    const duration = 1800;
+    const start = performance.now();
+    const startVal = 0;
+    const isFloat = target % 1 !== 0;
+
+    function update(time) {
+      const elapsed = Math.min((time - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - elapsed, 3);
+      const current = startVal + (target - startVal) * eased;
+      el.textContent = isFloat ? current.toFixed(1) + suffix : Math.round(current) + suffix;
+      if (elapsed < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  // Smooth nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
